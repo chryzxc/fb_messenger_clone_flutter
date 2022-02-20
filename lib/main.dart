@@ -30,10 +30,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _selectedIndex = 0;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
     });
   }
 
@@ -61,19 +68,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: ChatList(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: 'Chats',
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'People',
+            backgroundColor: Colors.blue,
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue[800],
+        onTap: _onItemTapped,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
@@ -81,5 +92,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ),
     );
+  }
+}
+
+class ChatList extends StatefulWidget {
+  ChatList({Key? key}) : super(key: key);
+
+  @override
+  State<ChatList> createState() => _ChatListState();
+}
+
+class _ChatListState extends State<ChatList> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
