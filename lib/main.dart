@@ -54,16 +54,25 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Icon(Icons.outbond_rounded),
-                SizedBox(
+                IconButton(
+                  icon: Icon(Icons.person_outline_rounded),
+                  onPressed: () {},
+                ),
+                const SizedBox(
                   width: 10,
                 ),
-                Text('Chats'),
+                const Text('Chats'),
               ],
             ),
             Row(children: <Widget>[
-              Icon(Icons.outbond_rounded),
-              Icon(Icons.outbond_rounded),
+              IconButton(
+                icon: const Icon(Icons.camera_alt_sharp),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: const Icon(Icons.edit),
+                onPressed: () {},
+              ),
             ]),
           ],
         ),
@@ -86,11 +95,11 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Colors.blue[800],
         onTap: _onItemTapped,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ),
     );
   }
 }
